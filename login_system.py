@@ -52,8 +52,8 @@ def create_account(username, password):
             f.write(f"{username} - {password}")
             f.write("\n")
         print("Account successfully created.")
-    else:
-        print("Login details invalid.")
+    # else:
+    #     print("Login details invalid.")
 
 
 def login(username, password):
@@ -73,3 +73,28 @@ def login(username, password):
         print("You've logged in successfully.")
     else:
         raise InvalidLoginDetails("Login Details Invalid.")
+
+def main():
+    action = input("Do you want to create an account or login? ")
+    if action == 'create':
+        username = input("Create username: ")
+        password = input("Create password: ")
+        while not (username_is_valid(username) and password_is_valid(password)):
+            print("Details invalid. Try again.\n")
+            username = input("Create username: ")
+            password = input("Create password: ")
+
+        create_account(username, password)
+
+    elif action == 'login':
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+        while not (username_is_valid(username) and password_is_valid(password)):
+            print("Login details invalid. Try again.\n")
+            username = input("Enter username: ")
+            password = input("Enter password: ")
+
+        login(username, password)
+
+if __name__ == '__main__':
+    main()
