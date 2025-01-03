@@ -52,9 +52,6 @@ def create_account(username, password):
             f.write(f"{username} - {password}")
             f.write("\n")
         print("Account successfully created.")
-    # else:
-    #     print("Login details invalid.")
-
 
 def login(username, password):
     """Use the details provided to login to an existing account."""
@@ -75,7 +72,8 @@ def login(username, password):
         raise InvalidLoginDetails("Login Details Invalid.")
 
 def main():
-    action = input("Do you want to create an account or login? ")
+    # Run the main program
+    action = input("Do you want to create an account or login? Enter 'create' or 'login': ")
     if action == 'create':
         username = input("Create username: ")
         password = input("Create password: ")
